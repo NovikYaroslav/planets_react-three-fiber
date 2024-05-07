@@ -1,7 +1,62 @@
-.label {
+@import "node_modules/normalize-scss/sass/normalize/import-now";
+
+@font-face {
+    font-family: NASA;
+    src: url("./fonts/nasalization/nasalization-rg.otf") format("opentype");
+}
+
+.content {
     display: flex;
-    height: 100vh;
-    justify-content: center;
     align-items: center;
-    font-size: 3rem;
+    height: 100vh;
+    width: 100vw;
+    background-image: url('/public/img/beautiful-shining-stars-night-sky.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.content__left {
+display: flex;
+flex-direction: column;
+width: 50%;
+height: 95%;
+text-align: end;
+margin-left: 70px;
+padding-top: 30px;
+}
+
+.content__right{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 50%;
+    height: 60%;
+    border-radius: 30px;
+    text-align: start;
+    margin-right: 30px;
+    padding-top: 30px;
+    font-size: 1.4rem;
+    color: #FFD8A9;
+    letter-spacing: 2px;
+    font-family: NASA;
+    }
+
+.title {
+    font-family: NASA;
+    font-weight: 500;
+    margin: 0;
+    margin: auto;
+    letter-spacing: 5px;
+    font-size: 4.5rem;
+    color: #FFC288;
+}
+
+.footer {
+    margin: 0;
+    margin-top: -35px;
+    text-align: center;
+    color: #FFC288;
+    font-family: NASA;
 }
