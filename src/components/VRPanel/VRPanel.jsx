@@ -19,7 +19,7 @@ export default function VRPanel({ onPlanetChange, currentPlanet }) {
   };
 
   return (
-    <group position={[0, -1.5, -2]}>
+    <group position={[0, -1, -1.5]}>
       {/* Фон панели */}
       <Box args={[4, 1, 0.1]} position={[0, 0, 0]}>
         <meshStandardMaterial color='#1a1a1a' opacity={0.8} transparent />

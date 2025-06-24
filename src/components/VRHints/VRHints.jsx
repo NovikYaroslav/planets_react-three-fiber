@@ -20,12 +20,12 @@ export default function VRHints({ currentPlanet }) {
   };
 
   return (
-    <group position={[0, 2, -3]}>
+    <group position={[0, 2, -2]}>
       {hints[currentPlanet].map((hint, index) => (
         <Text
           key={index}
           position={[0, -index * 0.5, 0]}
-          fontSize={0.2}
+          fontSize={0.15}
           color='#FFD8A9'
           anchorX='center'
           anchorY='middle'

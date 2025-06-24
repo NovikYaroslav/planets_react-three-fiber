@@ -19,7 +19,9 @@ function VRScene({ currentPlanet, onPlanetChange }) {
     <>
       <ambientLight intensity={0.5} />
       <directionalLight position={[10, 20, 20]} />
-      {planetSet[currentPlanet]}
+
+      {/* Планеты с правильным позиционированием */}
+      <group position={[0, 0, -5]}>{planetSet[currentPlanet]}</group>
 
       {/* VR контроллеры */}
       <Controllers />
@@ -36,7 +38,7 @@ function VRScene({ currentPlanet, onPlanetChange }) {
           onPlanetChange(currentPlanet === 'Earth' ? 'Moon' : 'Earth')
         }
       >
-        <mesh position={[0, -2, -3]}>
+        <mesh position={[0, -1, -1]}>
           <boxGeometry args={[0.5, 0.5, 0.5]} />
           <meshStandardMaterial color='orange' />
         </mesh>
@@ -59,7 +61,12 @@ export default function ContentVR({ onExitVR }) {
       <div className={styles.content__left}>
         <h1 className={styles.title}>{currentPlanetData.name} - VR Mode</h1>
         <Canvas
-          camera={{ fov: 50, near: 0.1, far: 10, position: [2, 0.3, 5] }}
+          camera={{
+            fov: 75,
+            near: 0.1,
+            far: 1000,
+            position: [0, 1.6, 3], // Стандартная высота глаз в VR
+          }}
           style={{
             width: '100%',
             margin: '0 0 0 0',
