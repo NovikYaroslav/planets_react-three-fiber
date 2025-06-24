@@ -40,7 +40,7 @@ module.exports = {
         test: /\.(gltf|glb|bin)$/,
         type: 'asset/resource',
         generator: {
-          filename: 'models/[path][name][ext]',
+          filename: 'static/models/[path][name][ext]',
         },
       },
       {
@@ -85,8 +85,8 @@ module.exports = {
     new CopyWebpackPlugin({
       patterns: [
         {
-          from: 'public/models',
-          to: 'models',
+          from: 'public/static/models',
+          to: 'static/models',
           noErrorOnMissing: true,
         },
       ],

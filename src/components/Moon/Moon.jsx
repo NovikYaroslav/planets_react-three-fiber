@@ -7,7 +7,7 @@ export default function Moon(props) {
   useFrame(() => {
     group.current.rotation.y += 0.002;
   });
-  const { nodes, materials } = useGLTF('/models/moon/scene.gltf');
+  const { nodes, materials } = useGLTF('/static/models/moon/scene.gltf');
   return (
     <group ref={group} {...props} dispose={null} scale={1.8}>
       <group name='Sketchfab_Scene'>
@@ -77,4 +77,4 @@ export default function Moon(props) {
   );
 }
 
-useGLTF.preload('/models/moon/scene.gltf');
+useGLTF.preload('/static/models/moon/scene.gltf');

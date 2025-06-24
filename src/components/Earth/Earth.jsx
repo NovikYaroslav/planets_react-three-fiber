@@ -9,7 +9,7 @@ export default function Earth(props) {
     group.current.rotation.y += 0.002;
   });
 
-  const { nodes, materials } = useGLTF('/models/earth/scene.gltf');
+  const { nodes, materials } = useGLTF('/static/models/earth/scene.gltf');
   return (
     <group ref={group} {...props} dispose={null}>
       <group name='Sketchfab_Scene'>
@@ -42,4 +42,4 @@ export default function Earth(props) {
   );
 }
 
-useGLTF.preload('/models/earth/scene.gltf');
+useGLTF.preload('/static/models/earth/scene.gltf');
