@@ -1,6 +1,6 @@
 import React, { useRef } from 'react';
 import { useGLTF, useAnimations } from '@react-three/drei';
-import { useFrame } from 'react-three-fiber';
+import { useFrame } from '@react-three/fiber';
 
 export default function Moon(props) {
   const group = useRef();

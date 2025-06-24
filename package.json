@@ -1,7 +1,7 @@
 {
-  "name": "webpack",
+  "name": "planets-vr-gallery",
   "version": "1.0.0",
-  "description": "",
+  "description": "Interactive 3D planets gallery with VR support",
   "main": "src/index.js",
   "scripts": {
     "dev": "NODE_ENV=development webpack serve --config webpack.config.js",
@@ -31,11 +31,12 @@
     "webpack-dev-server": "^4.7.1"
   },
   "dependencies": {
-    "@react-three/drei": "^9.105.6",
+    "@react-three/drei": "^9.122.0",
+    "@react-three/fiber": "^8.18.0",
+    "@react-three/xr": "^5.7.1",
     "normalize-scss": "^8.0.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
-    "react-router-dom": "^6.23.0",
-    "react-three-fiber": "^6.0.13"
+    "react-router-dom": "^6.23.0"
   }
 }

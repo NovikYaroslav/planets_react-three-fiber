@@ -1,13 +1,14 @@
 import { useRef } from 'react';
 import { useGLTF } from '@react-three/drei';
-import { useFrame } from 'react-three-fiber';
+import { useFrame } from '@react-three/fiber';
 
 export default function Earth(props) {
+  const group = useRef();
+
   useFrame(() => {
     group.current.rotation.y += 0.002;
   });
 
-  const group = useRef();
   const { nodes, materials } = useGLTF('/models/earth/scene.gltf');
   return (
     <group ref={group} {...props} dispose={null}>

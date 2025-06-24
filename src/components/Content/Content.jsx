@@ -1,19 +1,25 @@
-import { Canvas } from 'react-three-fiber';
+import { Canvas } from '@react-three/fiber';
 import { OrbitControls, Stats } from '@react-three/drei';
 import { useState } from 'react';
 import Moon from '../Moon/Moon';
-import Earth from '../Earth/earth';
+import Earth from '../Earth/Earth';
+import ContentVR from './ContentVR';
 import styles from '../../styles.scss';
 import { planetExtractor } from '../../utils/functions';
-import { FIRST_ELEMENT } from '../../data/const';
 
 export default function Content() {
-  const [currentPlanet, setCurrenPlanet] = useState('Earth');
+  const [currentPlanet, setCurrentPlanet] = useState('Earth');
+  const [isVRMode, setIsVRMode] = useState(false);
   const currentPlanetData = planetExtractor(currentPlanet);
   const planetSet = {
     Earth: <Earth />,
     Moon: <Moon />,
   };
+
+  // Если включен VR режим, показываем VR компонент
+  if (isVRMode) {
+    return <ContentVR onExitVR={() => setIsVRMode(false)} />;
+  }
 
   return (
     <main className={styles.content}>
@@ -34,7 +40,19 @@ export default function Content() {
         </Canvas>
       </div>
       <div className={styles.content__right}>
-        <button onClick={() => setCurrenPlanet('Moon')}>Next</button>
+        <div className={styles.controls}>
+          <button
+            onClick={() =>
+              setCurrentPlanet(currentPlanet === 'Earth' ? 'Moon' : 'Earth')
+            }
+            className={styles.planetButton}
+          >
+            Switch to {currentPlanet === 'Earth' ? 'Moon' : 'Earth'}
+          </button>
+          <button onClick={() => setIsVRMode(true)} className={styles.vrButton}>
+            Enter VR Mode
+          </button>
+        </div>
         <ul>
           {currentPlanetData.facts.map((fact) => {
             return <li key={fact}>{fact}</li>;
