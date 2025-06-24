@@ -2,7 +2,7 @@ import { Canvas } from '@react-three/fiber';
 import { OrbitControls, Stats } from '@react-three/drei';
 import { useState } from 'react';
 import Moon from '../Moon/Moon';
-import Earth from '../Earth/earth';
+import Earth from '../Earth/Earth';
 import ContentVR from './ContentVR';
 import styles from '../../styles.scss';
 import { planetExtractor } from '../../utils/functions';

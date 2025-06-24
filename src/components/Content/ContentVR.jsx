@@ -3,7 +3,7 @@ import { VRButton, XR, Controllers, Interactive, useXR } from '@react-three/xr';
 import { OrbitControls, Stats } from '@react-three/drei';
 import { useState } from 'react';
 import Moon from '../Moon/Moon';
-import Earth from '../Earth/earth';
+import Earth from '../Earth/Earth';
 import VRHints from '../VRHints/VRHints';
 import VRPanel from '../VRPanel/VRPanel';
 import styles from '../../styles.scss';
