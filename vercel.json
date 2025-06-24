@@ -9,26 +9,26 @@
       }
     }
   ],
-  "routes": [
+  "rewrites": [
     {
-      "src": "/static/(.*)",
-      "dest": "/static/$1"
+      "source": "/static/(.*)",
+      "destination": "/static/$1"
     },
     {
-      "src": "/models/(.*)",
-      "dest": "/models/$1"
+      "source": "/models/(.*)",
+      "destination": "/static/models/$1"
     },
     {
-      "src": "/favicon.ico",
-      "dest": "/favicon.ico"
+      "source": "/favicon.ico",
+      "destination": "/favicon.ico"
     },
     {
-      "src": "/(.*\\.(js|css|png|jpg|jpeg|gif|svg|woff|woff2|eot|ttf|otf|gltf|glb|bin))$",
-      "dest": "/$1"
+      "source": "/(.*\\.(js|css|png|jpg|jpeg|gif|svg|woff|woff2|eot|ttf|otf|gltf|glb|bin))$",
+      "destination": "/$1"
     },
     {
-      "src": "/(.*)",
-      "dest": "/index.html"
+      "source": "/(.*)",
+      "destination": "/index.html"
     }
   ],
   "headers": [
@@ -42,7 +42,7 @@
       ]
     },
     {
-      "source": "/models/(.*)",
+      "source": "/static/models/(.*)",
       "headers": [
         {
           "key": "Cache-Control",
