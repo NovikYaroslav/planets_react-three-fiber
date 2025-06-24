@@ -23,10 +23,6 @@
       "destination": "/favicon.ico"
     },
     {
-      "source": "/(.*\\.(js|css|png|jpg|jpeg|gif|svg|woff|woff2|eot|ttf|otf|gltf|glb|bin))$",
-      "destination": "/$1"
-    },
-    {
       "source": "/(.*)",
       "destination": "/index.html"
     }
