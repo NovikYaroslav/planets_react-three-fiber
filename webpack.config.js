@@ -3,6 +3,7 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 const production = process.env.NODE_ENV === 'production';
 
@@ -33,6 +34,13 @@ module.exports = {
         type: 'asset/resource',
         generator: {
           filename: 'static/fonts/[name].[hash][ext]',
+        },
+      },
+      {
+        test: /\.(gltf|glb|bin)$/,
+        type: 'asset/resource',
+        generator: {
+          filename: 'models/[path][name][ext]',
         },
       },
       {
@@ -73,6 +81,15 @@ module.exports = {
       filename: production
         ? 'static/css/[name].[contenthash].css'
         : '[name].css',
+    }),
+    new CopyWebpackPlugin({
+      patterns: [
+        {
+          from: 'public/models',
+          to: 'models',
+          noErrorOnMissing: true,
+        },
+      ],
     }),
   ],
   devServer: {
