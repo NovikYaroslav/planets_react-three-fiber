@@ -1,12 +1,5 @@
 import { Canvas } from '@react-three/fiber';
-import {
-  VRButton,
-  XR,
-  XRControllerComponent,
-  Interactive,
-  useXR,
-  XRControllerModel,
-} from '@react-three/xr';
+import { VRButton, XR, Controllers, Interactive, useXR } from '@react-three/xr';
 import { OrbitControls, Stats } from '@react-three/drei';
 import { useState } from 'react';
 import Moon from '../Moon/Moon';
@@ -28,10 +21,8 @@ function VRScene({ currentPlanet, onPlanetChange }) {
       <directionalLight position={[10, 20, 20]} />
       {planetSet[currentPlanet]}
 
-      {/* VR контроллеры с моделями */}
-      <XRControllerComponent>
-        <XRControllerModel />
-      </XRControllerComponent>
+      {/* VR контроллеры */}
+      <Controllers />
 
       {/* VR подсказки */}
       <VRHints currentPlanet={currentPlanet} />
