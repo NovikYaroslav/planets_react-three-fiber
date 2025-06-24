@@ -1,10 +1,18 @@
 import { Canvas } from '@react-three/fiber';
-import { VRButton, XR, Controllers, Interactive, useXR } from '@react-three/xr';
+import {
+  VRButton,
+  XR,
+  XRControllerComponent,
+  Interactive,
+  useXR,
+  XRControllerModel,
+} from '@react-three/xr';
 import { OrbitControls, Stats } from '@react-three/drei';
 import { useState } from 'react';
 import Moon from '../Moon/Moon';
 import Earth from '../Earth/earth';
 import VRHints from '../VRHints/VRHints';
+import VRPanel from '../VRPanel/VRPanel';
 import styles from '../../styles.scss';
 import { planetExtractor } from '../../utils/functions';
 
@@ -20,11 +28,16 @@ function VRScene({ currentPlanet, onPlanetChange }) {
       <directionalLight position={[10, 20, 20]} />
       {planetSet[currentPlanet]}
 
-      {/* VR контроллеры */}
-      <Controllers />
+      {/* VR контроллеры с моделями */}
+      <XRControllerComponent>
+        <XRControllerModel />
+      </XRControllerComponent>
 
       {/* VR подсказки */}
       <VRHints currentPlanet={currentPlanet} />
+
+      {/* VR панель управления */}
+      <VRPanel onPlanetChange={onPlanetChange} currentPlanet={currentPlanet} />
 
       {/* Интерактивные элементы для VR */}
       <Interactive
