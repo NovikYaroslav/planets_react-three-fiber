@@ -9,8 +9,8 @@
     "build:dev": "NODE_ENV=development webpack --config webpack.config.js",
     "build:watch": "NODE_ENV=development node ./node_modules/webpack/bin/webpack.js --config webpack.config.js --watch"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": ["planets", "vr", "3d", "space", "react", "three.js", "webxr"],
+  "author": "Planets VR Gallery",
   "license": "ISC",
   "devDependencies": {
     "@babel/core": "^7.16.5",

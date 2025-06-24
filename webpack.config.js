@@ -11,6 +11,8 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, './build'),
     filename: production ? '[name].[contenthash].js' : '[name].js',
+    publicPath: '/',
+    clean: true,
   },
   module: {
     rules: [
@@ -19,24 +21,19 @@ module.exports = {
         exclude: /node_modules/,
         use: ['babel-loader'],
       },
-      // {
-      //   test: /\.(png|jpe?g|gif)$/i,
-      //   use: [
-      //     {
-      //       loader: 'file-loader',
-      //       options: {
-      //         name: '[path][name].[ext]',
-      //       },
-      //     },
-      //   ],
-      // },
       {
-        test: /\.(png|jpg|gif|svg)$/,
+        test: /\.(png|jpg|gif|svg|jpeg)$/,
         type: 'asset/resource',
+        generator: {
+          filename: 'static/images/[name].[hash][ext]',
+        },
       },
       {
         test: /\.(woff|woff2|eot|ttf|otf)$/i,
         type: 'asset/resource',
+        generator: {
+          filename: 'static/fonts/[name].[hash][ext]',
+        },
       },
       {
         test: /\.s(a|c)ss$/,
@@ -67,18 +64,25 @@ module.exports = {
     new CleanWebpackPlugin(),
     new webpack.HotModuleReplacementPlugin(),
     new HtmlWebpackPlugin({
-      title: 'Webpack & React',
+      title: 'Planets VR Gallery',
       template: './src/index.html',
       favicon: './public/favicon.ico',
+      inject: true,
     }),
     new MiniCssExtractPlugin({
-      filename: production ? '[name].[contenthash].css' : '[name].css',
+      filename: production
+        ? 'static/css/[name].[contenthash].css'
+        : '[name].css',
     }),
   ],
   devServer: {
     port: 3002,
     hot: true,
     open: true,
+    historyApiFallback: true,
+    static: {
+      directory: path.join(__dirname, 'public'),
+    },
   },
   mode: production ? 'production' : 'development',
 };
